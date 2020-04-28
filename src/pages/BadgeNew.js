@@ -7,6 +7,22 @@ import Badge from '../components/Badge.js'
 import BadgeForm from '../components/BadgeForm.js'
 
 class BadgeNew extends React.Component{
+    state ={form:{
+        firstName:'',
+        email:'',
+        jobTitle:'',
+        github:'',
+    }};
+
+    handleChanche = e =>{
+        this.setState({
+            form:{
+                ...this.state.form,
+                [e.target.name]: e.target.value,
+            },
+        })
+    };
+
     render(){
         return(
             <div>
@@ -19,13 +35,14 @@ class BadgeNew extends React.Component{
                     <div className="row">
                         <div className="col-6">
                             <Badge 
-                            firstName="Manuel" 
-                            lastName="Goncaves"
-                            jobTitle="Frontend Engenieer" 
-                            userName="@manuel28g"/>
+                            firstName={this.state.form.firstName} 
+                            lastName={this.state.form.lastName} 
+                            jobTitle={this.state.form.jobTitle}  
+                            email={this.state.form.email}  
+                            userName={this.state.form.github} />
                         </div>
                         <div className="col-6">
-                            <BadgeForm />
+                            <BadgeForm onChange={this.handleChanche} formValue ={this.state.form}/>
                         </div>
                     </div>
                 </div>
