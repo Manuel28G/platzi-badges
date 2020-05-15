@@ -20,7 +20,7 @@ class BadgeForm extends React.Component {
 
     render() {
         return (
-            <div>
+            <React.Fragment>
                 <h1>New Attendant</h1>
                 <form onSubmit={this.handlerSubmit} >
                     <div className="form-group">
@@ -58,7 +58,7 @@ class BadgeForm extends React.Component {
                         <button type="button" onClick={this.handlerClickWithoutSubmit} className="btn btn-primary">Save 2</button>
                     </div>
                 </form>
-            </div>
+            </React.Fragment>
         );
     }
 }
